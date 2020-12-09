@@ -75,7 +75,12 @@ namespace ProcessesMonitoring
 
             updateCounter++;
 
-            
+            if (data_.disconnected)
+            {
+                Notifier.Notify($"PID {this.processID} disconnected. ( {ConfigurationManager.AppSettings["SlackMention"]} )");
+                stopNotifying = true;
+            }
+
 
             if (updateCounter > updateThreshold)
             {

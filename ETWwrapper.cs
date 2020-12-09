@@ -71,6 +71,12 @@ namespace ProcessesMonitoring
                         if (m_ProcessIDs.ContainsKey(data.ProcessID))
                         {
                             Console.WriteLine($"detected {data.ProcessID} tcp disconnect");
+                            lock (m_ProcessIDs[data.ProcessID])
+                            {
+                                m_ProcessIDs[data.ProcessID].disconnected = true;
+                                m_ProcessIDs[data.ProcessID].received = data.size;
+                                m_ProcessIDs[data.ProcessID].timestamp = data.TimeStamp;
+                            }
                         }
                     };
 

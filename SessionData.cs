@@ -14,12 +14,14 @@ namespace ProcessesMonitoring
             received = 0;
             cpuUsage = 0;
             timestamp = DateTime.Now;
+            disconnected = false;
         }
         public int sent { get; set; }
         public int received { get; set; }
         public DateTime timestamp { get; set; }
 
         public double cpuUsage { get; set; }
+        public bool disconnected { get; set; }
 
         public void hardCopy(SessionData other)
         {
