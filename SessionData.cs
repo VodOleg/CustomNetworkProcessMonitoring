@@ -29,6 +29,7 @@ namespace ProcessesMonitoring
             this.received = other.received;
             this.cpuUsage = other.cpuUsage;
             this.timestamp = other.timestamp;
+            this.disconnected = other.disconnected;
         }
 
     }
